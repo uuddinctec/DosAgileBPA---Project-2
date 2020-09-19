@@ -1,0 +1,5 @@
+$('#review').on('click',function(){
+  $('#review').parent().addClass('active');  
+  $('.tab-pane').addClass('active in');  
+  $('[data-toggle="tab"]').parent().removeClass('active');
+});

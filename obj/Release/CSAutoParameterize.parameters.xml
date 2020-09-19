@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Conn-Web.config Connection String" description="Conn Connection String used in web.config by the application to access the database." defaultValue="Data Source=10.1.10.243;Initial Catalog=Ride2MD-2;pooling=true;Integrated Security=False;User ID=watson;Password=w@tson2015" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="O:\\Xianfeng\\Ride2MD\\R2MD\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Conn']/@connectionString" />
+  </parameter>
+</parameters>

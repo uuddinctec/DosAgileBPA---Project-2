@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <form  action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="image" name="ctl00$CartBtn" id="CartBtn" src="images/btn_shoppingCart.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$CartBtn&quot;, &quot;&quot;, false, &quot;&quot;, &quot;https://www.paypal.com/cgi-bin/webscr&quot;, false, false))">
+        <input type="hidden" name="business" value="wkq95131@yahoo.com">
+        <input type="hidden" name="cmd" value="_cart">
+<!--        <input type="hidden" name="display" value="1"> -->
+        <input type="hidden" name="bn" value="PP-ShopCartBF">
+        <input type="hidden" name="lc" value="US">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="no_shipping" value="2">
+        <input type="hidden" name="amount" value="1299.00">    
+        <input type="hidden" name="item_number" value="500-6004">                
+        <input type="hidden" name="item_name" value="Katanin, P80">
+        <input type="hidden" name="add" value="1">
+        <INPUT TYPE="hidden" NAME="return" value="URLspecificToThisTransaction">
+        <INPUT TYPE="hidden" name="charset" value="utf-8">
+        <input type="hidden" name="address_override" value="1">
+        <input type="image" name="ctl00$SidebarContent$OrderBtn" id="SidebarContent_OrderBtn" src="images/btn_order.png" onclick='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$SidebarContent$OrderBtn", "", false, "", "https://www.paypal.com/cgi-bin/webscr", false, false))'>
+        <input type="submit" />
+            </form>
+</body>
+</html>

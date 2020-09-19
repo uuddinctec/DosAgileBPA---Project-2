@@ -1,0 +1,860 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Request Ride Service</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Styles -->
+    <link href="css/jquery.filer.css" rel="stylesheet">
+    <link href="css/themes/jquery.filer-dragdropbox-theme.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,700" rel="stylesheet">
+
+
+    <style>
+        .jFiler {
+            font-family: inherit;
+        }
+
+        textarea {
+            resize: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <section id="wizard">
+            <h1>Request Rider Service</h1>
+            <form id="idForm">
+                <div id="rootwizard">
+                    <nav>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#requestor" aria-controls="requestor" role="tab" data-toggle="tab">Requestor Information</a></li>
+                            <li role="presentation"><a href="#rider" aria-controls="rider" role="tab" data-toggle="tab">Rider Information</a></li>
+                            <li role="presentation"><a href="#services" aria-controls="services" role="tab" data-toggle="tab">Services</a></li>
+                            <li role="presentation"><a href="#documents" aria-controls="documents" role="tab" data-toggle="tab" id="document-tab">Documents</a></li>
+                            <li role="presentation"><a href="#" id="review">Review</a></li>
+                        </ul>
+                    </nav>
+                    <div class="tab-content">                        
+                        <div role="tabpanel" class="tab-pane fade in active" id="requestor">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>First Name<span class="require">&#42;</span></label>
+                                                <input class="required form-control" type="text" id="fname" name="request-fname">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Last Name<span class="require">&#42;</span></label>
+                                                <input class="required form-control" type="text" id="lname" name="request-lname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email<span class="require">&#42;</span></label>
+                                        <input class="required form-control" type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="john.doe@me.com" name="email">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Company</label>
+                                        <input class="form-control" type="text" name="company">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Phone Number<span class="require">&#42;</span></label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="required form-control" type="tel" maxlength="12" placeholder="###-###-####" name="requestor-phone" id="requestor-phone">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Requesting pickup for:</label>
+                                        <div class="checkbox">
+                                            <label class="radio-inline"><input type="radio" name="pickup-person" value="myself" id="myself">Myself</label>
+                                            <label class="radio-inline"><input type="radio" name="pickup-person" value="someone-else">Someone Else</label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <!-- END TAB -->
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="rider">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>First Name<span class="require">&#42;</span></label>
+                                                <input class="required form-control" id="rider-fname" type="text" name="rider-fname">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Last Name<span class="require">&#42;</span></label>
+                                                <input class="required form-control" id="rider-lname" type="text" name="rider-lname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address<span class="require">&#42;</span></label>
+                                        <input class="required form-control" type="text" placeholder="Address Line 1" name="rider-add1" id="rider-add1">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" placeholder="Address Line 2" name="rider-add2" id="rider-add2">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" placeholder="City" name="rider-city" id="rider-city" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" placeholder="State" name="rider-state" id="rider-state" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" placeholder="Zip Code" name="rider-zip" id="rider-zip" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" placeholder="Country" name="rider-country" id="rider-country">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Phone Number<span class="require">&#42;</span></label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="required form-control" type="tel" maxlength="12" placeholder="###-###-####" name="rider-phone" id="rider-phone">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Gender</label>
+                                                <div class="gender-selector">
+                                                    <input id="male" type="radio" name="gender" value="male">
+                                                    <label class="gender male" for="male"></label>
+                                                    <input id="female" type="radio" name="gender" value="female">
+                                                    <label class="gender female" for="female"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Height &amp; Weight</label>
+                                                <div class="row no-gutter">
+                                                    <div class="col-md-3 col-xs-4">
+                                                        <input class="form-control" type="text" pattern="[0-9]" maxlength="1" placeholder="ft" name="height-ft">
+                                                    </div>
+                                                    <div class="col-md-3 col-xs-4">
+                                                        <input class="form-control" type="text" pattern="[0-9]+" maxlength="2" placeholder="in" name="height-in">
+                                                    </div>
+                                                    <div class="col-md-1 hidden-xs">
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-4">
+                                                        <input class="form-control" type="text" pattern="[0-9]+" maxlength="3" placeholder="lbs" name="weight-lbs">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="date" name="birthdate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <p>Language Spoken</p>
+                                        <label for="language-english" class="checkbox-inline">
+                                            <input type="checkbox" id="language-english" name="language-english" checked>English
+                                        </label>
+
+                                        <label for="language-spanish" class="checkbox-inline">
+                                            <input type="checkbox" id="language-spanish" name="language-spanish">Spanish
+                                        </label>
+
+                                        <label for="language-other" class="checkbox-inline">
+                                            <input type="checkbox" id="language-other1" name="language-other1">Other
+
+                                        </label>
+
+                                        <input type="text" id="language-other2" name="language-other2" class="checkbox-other">
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Any Pertinent Information</label>
+                                        <textarea rows="3" class="form-control" name="extra-info"></textarea>
+                                    </div>
+
+                                    <hr>
+
+                                    <h3>Payor Information</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Payor<span class="require">&#42;</span></label>
+                                                <input class="required form-control" type="text" name="insurance-type">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>ID Number</label>
+                                                <input class="form-control" type="text" name="insurance-number">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END TAB -->
+
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="services">
+
+                            <div class="row services">
+                                <p id="select-services">Select services:</p>
+                                <div class="col-5">
+
+                                    <input type="checkbox" id="box-transport" name="service-transport">
+                                    <label for="box-transport" data-toggle="collapse" data-target="#transportation">
+
+                                        <div class="v-align">
+                                            <img src="img/service-1.png">
+                                            <p>Transportation</p>
+                                            <div class="box-overlay">
+                                                <img src="img/checked.png">
+                                            </div>
+                                        </div>
+
+                                    </label>
+
+
+                                </div>
+                                <div class="col-5">
+                                    <input type="checkbox" id="box-interpret" name="service-interpret">
+                                    <label for="box-interpret" data-toggle="collapse" data-target="#onsite-interpreting">
+                                        <div class="v-align">
+                                            <img src="img/service-2.png">
+                                            <p>On Site Interpreting</p>
+                                            <div class="box-overlay">
+                                                <img src="img/checked.png">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="checkbox" id="box-equipment" name="service-equipment">
+                                    <label for="box-equipment" data-toggle="collapse" data-target="#medical-equipment">
+                                        <div class="v-align">
+                                            <img src="img/service-3.png">
+                                            <p>Medical Equipment</p>
+                                            <div class="box-overlay">
+                                                <img src="img/checked.png">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="checkbox" id="box-home" name="service-home">
+                                    <label for="box-home" data-toggle="collapse" data-target="#home">
+                                        <div class="v-align">
+                                            <img src="img/service-4.png">
+                                            <p>Home Health / Home Infusion</p>
+                                            <div class="box-overlay">
+                                                <img src="img/checked.png">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="checkbox" id="box-diagnostic" name="service-diagnostic">
+                                    <label for="box-diagnostic" data-toggle="collapse" data-target="#diagnostic">
+                                        <div class="v-align">
+                                            <img src="img/service-5.png">
+                                            <p>Diagnostic Services</p>
+                                            <div class="box-overlay">
+                                                <img src="img/checked.png">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row collapse" id="transportation">
+                                <div class="col-md-12 service-title">
+                                    <h3>Transportation</h3>
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="section">
+                                    <div class="col-md-6">
+                                        <div class="appointment-table">
+                                            <table id="appt-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Time</th>
+                                                        <th>Passengers</th>
+                                                        <th>RT</th>
+                                                        <th>Pickup</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="appt-body"></tbody>
+                                            </table>
+                                            <input type="hidden" name="appointment-table-data" class="appointment-table-data">
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" class="button-recur" data-toggle="modal" data-target="#myModal">
+                                                Add Appointment
+                                            </button>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>Transport Type<span class="require">*</span></label>
+                                            <select class="form-control" id="transport" name="transport-type">
+                                                <option>Ambulatory Sedan</option>
+                                                <option>Wheelchair</option>
+                                                <option>Stretcher</option>
+                                                <option>ALS Ambulance</option>
+                                                <option>BLS Ambulance</option>
+                                                <option>VIP Transport</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Pick Up Location Name &amp; Address<span class="require">*</span></label>
+                                            <input class="form-control" type="text" placeholder="Location Name" name="pickup-name" id="pickup-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Address Line 1" name="pickup-add1" id="pickup-add1">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Address Line 2" name="pickup-add2" id="pickup-add2">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" placeholder="City" name="pickup-city" id="pickup-city">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" placeholder="State" name="pickup-state" id="pickup-state">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" placeholder="Zip Code" name="pickup-zip" id="pickup-zip">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" placeholder="Country" name="pickup-country" id="pickup-country">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Phone<span class="require">*</span></label>
+                                                    <input class="form-control" type="tel" maxlength="12" placeholder="###-###-####" name="pickup-phone" id="pickup-phone">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Drop Off Location Name &amp; Address<span class="require">*</span></label>
+                                            <input class="form-control" type="text" placeholder="Location Name" name="dropoff-name" id="dropoff-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Address Line 1" name="dropoff-add1" id="dropoff-add1">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Address Line 2" name="dropoff-add2">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" placeholder="City" name="dropoff-city" id="dropoff-city">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" placeholder="State" name="dropoff-state" id="dropoff-state">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" placeholder="Zip Code" name="dropoff-zip" id="dropoff-zip">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6.checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text" placeholder="Country" name="dropoff-country">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Phone</label>
+                                                    <input class="form-control" type="tel" maxlength="12" placeholder="###-###-####" name="dropoff-phone" id="dropoff-phone">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Additional Instructions</label>
+                                            <textarea rows="3" class="form-control" name="transport-instructions"></textarea>
+                                        </div>
+
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h3 class="modal-title" id="myModalLabel">Add Appointment</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div id="datepicker" data-date-multidate="true" data-date-multidate-separator=" "></div>
+                                                    <input type="hidden" id="appt-date">
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Appointment Time</label>
+                                                        <div class="row no-gutter">
+                                                            <div class="col-md-8 col-xs-8">
+                                                                <input class="form-control" type="text" placeholder="00:00" maxlength="5" name="transport-time1" id="transport-time1">
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-4">
+                                                                <select class="form-control" name="transport-time2" id="transport-time2">
+                                                                    <option value="AM">AM</option>
+                                                                    <option value="PM">PM</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Number of Additional Passengers</label>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <input class="form-control" type="text" pattern="[0-9]" maxlength="1" name="passenger" id="passenger">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="roundtrip">
+                                                            Round Trip
+                                                            <input type="checkbox" id="roundtrip" name="roundtrip">
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="form-group" id="pickup-time">
+                                                        <label>Pickup Time</label>
+                                                        <div class="row no-gutter">
+                                                            <div class="col-md-8 col-xs-8">
+                                                                <input class="form-control" type="text" placeholder="00:00" maxlength="5" name="pickup-time1" id="pickup-time1">
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-4">
+                                                                <select class="form-control" name="pickup-time2" id="pickup-time2">
+                                                                    <option value="AM">AM</option>
+                                                                    <option value="PM">PM</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="pickup-warning">
+                                                PLEASE NOTE: in order to be picked up by Ride2MD you need to call in at (855) 631-7433.<br>
+                                                We do not provide car seats for children.
+                                            </div>
+                                            <div class="pickup-validate">
+                                                Please pick a date AND time.
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="button" id="appt-save">SAVE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="onsite-interpreting">
+                                <div class="col-md-12 service-title">
+                                    <h3>On Site Interpreting</h3>
+                                    <span class="arrow"></span>
+                                </div>
+
+                                <div class="section">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <p>Language</p>
+                                            <label for="interpret-spanish" class="checkbox-inline">
+                                                <input type="checkbox" id="interpret-spanish" name="interpret-spanish">Spanish
+                                            </label>
+
+                                            <label for="interpret-creole" class="checkbox-inline">
+                                                <input type="checkbox" id="interpret-creole" name="interpret-creole">Creole
+                                            </label>
+
+                                            <label for="interpret-portuguese" class="checkbox-inline">
+                                                <input type="checkbox" id="interpret-portuguese" name="interpret-portuguese">Portuguese
+                                            </label>
+
+                                            <label for="interpret-other" class="checkbox-inline">
+                                                <input type="checkbox" id="interpret-other" name="interpret-other">Other
+
+                                            </label>
+
+                                            <input type="text" id="other-language" name="other-language" class="checkbox-other">
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <p>Interpreting is needed at:</p>
+                                            <label for="interpret-pickup" class="checkbox-inline">
+                                                <input type="checkbox" id="interpret-pickup" name="interpret-pickup">Pick Up Location
+                                            </label>
+
+                                            <label for="interpret-dropoff" class="checkbox-inline">
+                                                <input type="checkbox" id="interpret-dropoff" name="interpret-dropoff">Drop Off Location
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row collapse" id="medical-equipment">
+                                <div class="col-md-12 service-title">
+                                    <h3>Medical Equipment</h3>
+                                    <span class="arrow"></span>
+                                </div>
+
+                                <div class="section">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Equipment Type</label>
+                                            <input class="form-control" type="text" name="equip-type">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Additional Information</label>
+                                            <textarea rows="3" class="form-control" name="equip-info"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row collapse" id="home">
+                                <div class="col-md-12 service-title">
+                                    <h3>Home Health / Home Infusion</h3>
+                                    <span class="arrow"></span>
+                                </div>
+
+                                <div class="section">
+                                    <div class="col-md-6">
+                                        <div class="form-group check">
+                                            <p>Service Type</p>
+                                            <label for="home-nurse" class="checkbox-inline">
+                                                <input type="checkbox" id="home-nurse" name="home-nurse">Certified Nurse
+                                            </label>
+
+                                            <label for="home-aid" class="checkbox-inline">
+                                                <input type="checkbox" id="home-aid" name="home-aid">Home Health Aide
+                                            </label>
+
+                                            <label for="home-rn-lpn" class="checkbox-inline">
+                                                <input type="checkbox" id="home-rn-lpn" name="home-rn-lpn">RN/LPN
+                                            </label>
+
+                                            <label for="home-companion" class="checkbox-inline">
+                                                <input type="checkbox" id="home-companion" name="home-companion">Other
+                                            </label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Additional Information</label>
+                                            <textarea rows="3" class="form-control" name="home-info"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row collapse" id="diagnostic">
+                                <div class="col-md-12 service-title">
+                                    <h3>Diagnostic Services</h3>
+                                    <span class="arrow"></span>
+                                </div>
+
+                                <div class="section">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <strong>Please upload your diagnostic documents on the next page.</strong>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Diagnostic Services Needed</label>
+                                            <input class="form-control" type="text" name="diagnostic-type">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Additional Information</label>
+                                            <textarea rows="3" class="form-control" name="diagnostic-info"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!-- END TAB -->
+                        </div>                        
+
+                        <div role="tabpanel" class="tab-pane fade" id="documents">
+                            <div class="documents">
+                                <div id="content">
+
+                                    <center><h3>Upload Document</h3></center>
+                                    <p>You can also fax documents to <strong>305-675-3221</strong>.</p>
+                                    <input type="file" name="files[]" id="filer_input2" multiple>
+                                    <div id="testUpload" style="display:none">upload</div>
+                                    <input type="hidden" id="uploadfiles" name="uploadfiles" value="">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="req-alert">
+                                <span class="require">*</span> indicates required field
+                            </div>
+                            <hr>
+
+
+                            <button type="submit" id="submit" class="button hide">Submit</button>
+                            <ul class="pager wizard">
+                                <li class="previous"><a class="button-gray" href="#">Previous</a></li>
+                                <li class="next"><a class="button" id="btn-next" href="#">Next</a></li>
+                                <li class="next-last"><a class="button hide" id="btn-continue">Next</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div id="tempValue" style="display:none"></div>
+                </div>
+            </form>
+        </section>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="js/jquery.bootstrap.wizard.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/js.js"></script>
+    <!-- Jvascript -->
+    <script src="js/jquery.filer.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.4.12.min.js"></script>
+    <!--<script src="js/uploadFile.js" type="text/javascript"></script>-->
+    
+    <script>
+
+        $('#datepicker').datepicker();
+        $('#datepicker').on('changeDate', function() {
+            $('#appt-date').val(
+                $('#datepicker').datepicker('getFormattedDate')
+            );
+        });
+
+        $(document).ready(function () {
+            countfile = 0;
+            filelength = 0;
+
+            var $validator = $("#idForm").validate();
+
+              $('#rootwizard').bootstrapWizard({
+                'tabClass': 'nav nav-tabs',
+                'onNext': function (tab, navigation, index) {
+                    if ($(".tab-content .tab-pane:visible").attr("id") == "services") {
+
+
+                        if ($("#box-transport").prop('checked') == true || $("#box-interpret").prop('checked') == true || $("#box-equipment").prop('checked') == true || $("#box-home").prop('checked') == true || $("#box-diagnostic").prop('checked') == true) {
+                            var $valid = $("#idForm").valid();
+                            if ($("#box-transport").prop('checked') == true) {
+                                if ($('#appt-body tr').length) {
+                                    $valid = true;
+                                } else {
+                                    $valid = false;
+                                    $('#button-recur').css('border', '1px solid red');
+                                }
+                            }
+
+                            if (!$valid) {
+                                $validator.focusInvalid();
+                                return false;
+                            }
+                        }
+                        else {
+                            $('#select-services').css('color', 'red');
+                            return false;
+
+                        }
+                    }
+
+                    var $valid = $("#idForm").valid();
+                    if (!$valid) {
+                        $validator.focusInvalid();
+                        return false;
+                    }
+                },
+                'onTabClick': function (tab, navigation, index) {
+                    if ($(".tab-content .tab-pane:visible").attr("id") == "services") {
+
+
+                        if ($("#box-transport").prop('checked') == true || $("#box-interpret").prop('checked') == true || $("#box-equipment").prop('checked') == true || $("#box-home").prop('checked') == true || $("#box-diagnostic").prop('checked') == true) {
+                            var $valid = $("#idForm").valid();
+                            if ($("#box-transport").prop('checked') == true) {
+                                if ($('#appt-body tr').length) {
+                                    $valid = true;
+                                } else {
+                                    $valid = false;
+                                    $('#button-recur').css('border', '1px solid red');
+                                }
+                            }
+
+                            if (!$valid) {
+                                $validator.focusInvalid();
+                                return false;
+                            }
+                        }
+                        else {
+                            $('#select-services').css('color', 'red');
+                            return false;
+
+                        }
+                    }
+
+                    var $valid = $("#idForm").valid();
+                    if (!$valid) {
+                        $validator.focusInvalid();
+                        return false;
+                    }
+                }
+              });
+
+          });
+
+        $("#idForm").submit(function (e) {   //$("#testbutton").click
+            $("#submit").prop("disabled", true);
+            //number = $("#filer_input2")[0].files.length;
+	        var dataArr = [];
+            $("#appt-table td").each(function(){
+                dataArr.push($(this).html());
+            });
+            $('.appointment-table-data').val(dataArr);
+            var formdata = $("#idForm").serializeArray();
+            var dataobj = {};
+            for (var i = 0; i < formdata.length; i++) {
+                if (formdata[i].name.indexOf("-") >= 0) {
+                    formdata[i].name=formdata[i].name.replace(/\-/g, "");
+                }
+                dataobj[formdata[i].name] = formdata[i].value;
+            };
+            dataobj["UploadFile"] = $("#tempValue").text();
+            var jSonData = JSON.stringify({ obj: dataobj });
+            $.ajax({
+                type: "POST",
+                url: "WebService.asmx/GetEmailInfo",
+                data: jSonData,
+                contentType: "application/json; charset=utf-8",
+                success: function (data)
+                {
+                    alert("Thank you, your request has been submitted."); // show response from the php script.
+                    $('#idForm')[0].reset();
+                    location.reload(true);
+                },
+                error: function(xhr){
+                    $("#submit").prop("disabled", false);
+                }
+            });
+            e.preventDefault(); //avoid to execute the actual submit of the form.
+        });
+
+
+
+
+    </script>
+</body>
+</html>
