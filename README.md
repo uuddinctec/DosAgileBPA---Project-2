@@ -1,2 +1,21 @@
 # DosAgileBPA---Project-2
-DosAgileBPA - Project 2
+Usman,
+
+This could be the intro:
+Description of Work: Cybermedia Technologies, Inc. (CTEC), in support of task order contract 70B06C18F00001316 under their GSA STARS II Government Wide Acquisition Contract GS06F0685Z, provided the U.S. Department of Homeland Security (DHS) – U.S. Customs and Border Protection with design and implementation of their Enterprise Collaboration and Customer Relationship Management Correspondence System. Specifically, CTEC utilized agile development processes to establish and develop a Customer Relationship Management (CRM) application for the CBP Information Center (CIC) and its 1,600 internal users and worldwide external customers. The CRM application is used to maintain a centralized view of all interactions and improve the outreach experience to citizens and foreign visitors contacting and engaging with CBP through various methods.IT services CTEC provided in support of this contract included CRM application design and implementation; CRM application system configuration to support business processes; CRM application integration for input and output methods; workflow design and implementation; overall collaboration of
+
+applications; enhancements, patches, and updates to applications, data, and cloud systems; data import of records collected from legacy systems; automated testing; and training of end users on the CRM application systems.
+
+Retrospective: For the CBP CRM (CIC/TIC) we conduced 5 sprints to deliver the Correspondence Management System (CMS) Minimal Viable Product (MVP). We implemented the Agile scrum process on a 2-week standard sprint cycle. Our scrum is an iterative and incremental Agile software development framework for managing the CMS software product development to build out a .NET application coupled with Azure cloud and Salesforce cloud integration capabilities and storage. On the backend for case management we integrated the .NET CMS application and Azure cloud to Microsoft Dynamics using a configure 1st model for case management. We used Jira to track epics, user stories, bugs, test scripts and test cases based on defined acceptance criteria and definition of done. Our agile leads, during each retrospective would look at the agile teams burn-down/burn-up charts and team velocity to talk about what went well and what did not go well such as did we assign the correct story points to a story. We also asked, did we work
+
+collaboratively and what can be automated to continue to improve our efficiencies for deployments? Our retrospective goal is to provide a judgement free atmosphere to get real feedback to improve the team’s velocity as their knowledge and requirements of the CMS product continued to evolve.
+
+
+
+Relevancy: Relevant to the Emerging Technology of Autonomic Computing and also Artificial Intelligence (AI), the CRM application that CTEC designed, developed, and implemented required multiple queues for automated routing of questions, comments, compliments, complaints, configuration items, escalation, and
+
+system notifications; facilitation of an English and Spanish externally (public facing) automated chat like website/knowledgebase to facilitate intake of the publics questions, comments, compliments, complaints, escalation, system configuration items and notifications (similar to Ask Emma’s Virtual Assistant); automation of ticket creation, and routing to appropriate group/component, and supplies public with
+
+incident number if questions are not answered or directed to the appropriate site; Natural Language support (30 languages); autonomic answering (assigned and learned); automated navigation; automated dynamic forms; and automated routing, categorization, escalation, and notification. We provided real-time
+
+chat channels through chatbots, chat management (intelligent routing, chat schedule control etc.), AI based cognitive services such as multi-language translation (English and Spanish), Natural Language Processing (NLP) integration, and Chat Transcripts. We also leveraged AI technology to provide humanlike interaction to the users through several messaging channels from Facebook messenger, Skype, native applications, and web-to-voice enabled devices like Amazon Alexa. Our CRM solution was fully customized with user-friendly admin portal pages that provided an easy way for business experts to define, modify and manage conversations, business rules and responses without any programming required.
