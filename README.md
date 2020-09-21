@@ -10,7 +10,7 @@ collaboratively and what can be automated to continue to improve our efficiencie
 
 
 
-<h1>Relevancy </h1>: Relevant to the Emerging Technology of Autonomic Computing and also Artificial Intelligence (AI), the CRM application that CTEC designed, developed, and implemented required multiple queues for automated routing of questions, comments, compliments, complaints, configuration items, escalation, and
+<h1>Relevancy: </h1> Relevant to the Emerging Technology of Autonomic Computing and also Artificial Intelligence (AI), the CRM application that CTEC designed, developed, and implemented required multiple queues for automated routing of questions, comments, compliments, complaints, configuration items, escalation, and
 
 system notifications; facilitation of an English and Spanish externally (public facing) automated chat like website/knowledgebase to facilitate intake of the publics questions, comments, compliments, complaints, escalation, system configuration items and notifications (similar to Ask Emma’s Virtual Assistant); automation of ticket creation, and routing to appropriate group/component, and supplies public with
 
